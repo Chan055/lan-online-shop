@@ -3,13 +3,13 @@ import { PrismaClient } from "../generated/prisma";
 const prisma = new PrismaClient();
 
 export const getUserByEmail = async (email: string) => {
-  return await prisma.user.findUnique({
+  return prisma.user.findUnique({
     where: { email },
   });
 };
 
 export const getOtpByEmail = async (email: string) => {
-  return await prisma.otp.findUnique({
+  return prisma.otp.findUnique({
     where: { email },
   });
 };
@@ -41,7 +41,7 @@ export const updateUser = async (id: number, data: any) => {
 };
 
 export const getUserById = async (id: number) => {
-  return await prisma.user.findUnique({
+  return prisma.user.findUnique({
     where: { id },
   });
 };
