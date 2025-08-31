@@ -134,10 +134,10 @@ exports.Prisma.OtpScalarFieldEnum = {
 
 exports.Prisma.UserScalarFieldEnum = {
   id: 'id',
-  firstName: 'firstName',
-  lastName: 'lastName',
+  name: 'name',
   email: 'email',
   password: 'password',
+  birthDate: 'birthDate',
   address: 'address',
   role: 'role',
   gender: 'gender',
@@ -284,8 +284,7 @@ exports.Prisma.OtpOrderByRelevanceFieldEnum = {
 };
 
 exports.Prisma.UserOrderByRelevanceFieldEnum = {
-  firstName: 'firstName',
-  lastName: 'lastName',
+  name: 'name',
   email: 'email',
   password: 'password',
   address: 'address',
