@@ -6536,18 +6536,21 @@ export namespace Prisma {
 
   export type CategoryMinAggregateOutputType = {
     id: number | null
+    name: string | null
     description: string | null
     productCount: number | null
   }
 
   export type CategoryMaxAggregateOutputType = {
     id: number | null
+    name: string | null
     description: string | null
     productCount: number | null
   }
 
   export type CategoryCountAggregateOutputType = {
     id: number
+    name: number
     description: number
     productCount: number
     _all: number
@@ -6566,18 +6569,21 @@ export namespace Prisma {
 
   export type CategoryMinAggregateInputType = {
     id?: true
+    name?: true
     description?: true
     productCount?: true
   }
 
   export type CategoryMaxAggregateInputType = {
     id?: true
+    name?: true
     description?: true
     productCount?: true
   }
 
   export type CategoryCountAggregateInputType = {
     id?: true
+    name?: true
     description?: true
     productCount?: true
     _all?: true
@@ -6671,6 +6677,7 @@ export namespace Prisma {
 
   export type CategoryGroupByOutputType = {
     id: number
+    name: string
     description: string
     productCount: number
     _count: CategoryCountAggregateOutputType | null
@@ -6696,6 +6703,7 @@ export namespace Prisma {
 
   export type CategorySelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
+    name?: boolean
     description?: boolean
     productCount?: boolean
     products?: boolean | Category$productsArgs<ExtArgs>
@@ -6706,11 +6714,12 @@ export namespace Prisma {
 
   export type CategorySelectScalar = {
     id?: boolean
+    name?: boolean
     description?: boolean
     productCount?: boolean
   }
 
-  export type CategoryOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "description" | "productCount", ExtArgs["result"]["category"]>
+  export type CategoryOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "description" | "productCount", ExtArgs["result"]["category"]>
   export type CategoryInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     products?: boolean | Category$productsArgs<ExtArgs>
     _count?: boolean | CategoryCountOutputTypeDefaultArgs<ExtArgs>
@@ -6723,6 +6732,7 @@ export namespace Prisma {
     }
     scalars: $Extensions.GetPayloadResult<{
       id: number
+      name: string
       description: string
       productCount: number
     }, ExtArgs["result"]["category"]>
@@ -7096,6 +7106,7 @@ export namespace Prisma {
    */
   interface CategoryFieldRefs {
     readonly id: FieldRef<"Category", 'Int'>
+    readonly name: FieldRef<"Category", 'String'>
     readonly description: FieldRef<"Category", 'String'>
     readonly productCount: FieldRef<"Category", 'Int'>
   }
@@ -16612,6 +16623,7 @@ export namespace Prisma {
 
   export const CategoryScalarFieldEnum: {
     id: 'id',
+    name: 'name',
     description: 'description',
     productCount: 'productCount'
   };
@@ -16787,6 +16799,7 @@ export namespace Prisma {
 
 
   export const CategoryOrderByRelevanceFieldEnum: {
+    name: 'name',
     description: 'description'
   };
 
@@ -17290,6 +17303,7 @@ export namespace Prisma {
     OR?: CategoryWhereInput[]
     NOT?: CategoryWhereInput | CategoryWhereInput[]
     id?: IntFilter<"Category"> | number
+    name?: StringFilter<"Category"> | string
     description?: StringFilter<"Category"> | string
     productCount?: IntFilter<"Category"> | number
     products?: ProductListRelationFilter
@@ -17297,6 +17311,7 @@ export namespace Prisma {
 
   export type CategoryOrderByWithRelationInput = {
     id?: SortOrder
+    name?: SortOrder
     description?: SortOrder
     productCount?: SortOrder
     products?: ProductOrderByRelationAggregateInput
@@ -17305,16 +17320,18 @@ export namespace Prisma {
 
   export type CategoryWhereUniqueInput = Prisma.AtLeast<{
     id?: number
+    name?: string
     AND?: CategoryWhereInput | CategoryWhereInput[]
     OR?: CategoryWhereInput[]
     NOT?: CategoryWhereInput | CategoryWhereInput[]
     description?: StringFilter<"Category"> | string
     productCount?: IntFilter<"Category"> | number
     products?: ProductListRelationFilter
-  }, "id">
+  }, "id" | "name">
 
   export type CategoryOrderByWithAggregationInput = {
     id?: SortOrder
+    name?: SortOrder
     description?: SortOrder
     productCount?: SortOrder
     _count?: CategoryCountOrderByAggregateInput
@@ -17329,6 +17346,7 @@ export namespace Prisma {
     OR?: CategoryScalarWhereWithAggregatesInput[]
     NOT?: CategoryScalarWhereWithAggregatesInput | CategoryScalarWhereWithAggregatesInput[]
     id?: IntWithAggregatesFilter<"Category"> | number
+    name?: StringWithAggregatesFilter<"Category"> | string
     description?: StringWithAggregatesFilter<"Category"> | string
     productCount?: IntWithAggregatesFilter<"Category"> | number
   }
@@ -18325,6 +18343,7 @@ export namespace Prisma {
   }
 
   export type CategoryCreateInput = {
+    name: string
     description: string
     productCount?: number
     products?: ProductCreateNestedManyWithoutCategoryInput
@@ -18332,12 +18351,14 @@ export namespace Prisma {
 
   export type CategoryUncheckedCreateInput = {
     id?: number
+    name: string
     description: string
     productCount?: number
     products?: ProductUncheckedCreateNestedManyWithoutCategoryInput
   }
 
   export type CategoryUpdateInput = {
+    name?: StringFieldUpdateOperationsInput | string
     description?: StringFieldUpdateOperationsInput | string
     productCount?: IntFieldUpdateOperationsInput | number
     products?: ProductUpdateManyWithoutCategoryNestedInput
@@ -18345,6 +18366,7 @@ export namespace Prisma {
 
   export type CategoryUncheckedUpdateInput = {
     id?: IntFieldUpdateOperationsInput | number
+    name?: StringFieldUpdateOperationsInput | string
     description?: StringFieldUpdateOperationsInput | string
     productCount?: IntFieldUpdateOperationsInput | number
     products?: ProductUncheckedUpdateManyWithoutCategoryNestedInput
@@ -18352,17 +18374,20 @@ export namespace Prisma {
 
   export type CategoryCreateManyInput = {
     id?: number
+    name: string
     description: string
     productCount?: number
   }
 
   export type CategoryUpdateManyMutationInput = {
+    name?: StringFieldUpdateOperationsInput | string
     description?: StringFieldUpdateOperationsInput | string
     productCount?: IntFieldUpdateOperationsInput | number
   }
 
   export type CategoryUncheckedUpdateManyInput = {
     id?: IntFieldUpdateOperationsInput | number
+    name?: StringFieldUpdateOperationsInput | string
     description?: StringFieldUpdateOperationsInput | string
     productCount?: IntFieldUpdateOperationsInput | number
   }
@@ -19557,6 +19582,7 @@ export namespace Prisma {
 
   export type CategoryCountOrderByAggregateInput = {
     id?: SortOrder
+    name?: SortOrder
     description?: SortOrder
     productCount?: SortOrder
   }
@@ -19568,12 +19594,14 @@ export namespace Prisma {
 
   export type CategoryMaxOrderByAggregateInput = {
     id?: SortOrder
+    name?: SortOrder
     description?: SortOrder
     productCount?: SortOrder
   }
 
   export type CategoryMinOrderByAggregateInput = {
     id?: SortOrder
+    name?: SortOrder
     description?: SortOrder
     productCount?: SortOrder
   }
@@ -21486,12 +21514,14 @@ export namespace Prisma {
   }
 
   export type CategoryCreateWithoutProductsInput = {
+    name: string
     description: string
     productCount?: number
   }
 
   export type CategoryUncheckedCreateWithoutProductsInput = {
     id?: number
+    name: string
     description: string
     productCount?: number
   }
@@ -21604,12 +21634,14 @@ export namespace Prisma {
   }
 
   export type CategoryUpdateWithoutProductsInput = {
+    name?: StringFieldUpdateOperationsInput | string
     description?: StringFieldUpdateOperationsInput | string
     productCount?: IntFieldUpdateOperationsInput | number
   }
 
   export type CategoryUncheckedUpdateWithoutProductsInput = {
     id?: IntFieldUpdateOperationsInput | number
+    name?: StringFieldUpdateOperationsInput | string
     description?: StringFieldUpdateOperationsInput | string
     productCount?: IntFieldUpdateOperationsInput | number
   }

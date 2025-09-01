@@ -175,6 +175,7 @@ exports.Prisma.ProductScalarFieldEnum = {
 
 exports.Prisma.CategoryScalarFieldEnum = {
   id: 'id',
+  name: 'name',
   description: 'description',
   productCount: 'productCount'
 };
@@ -302,6 +303,7 @@ exports.Prisma.ProductOrderByRelevanceFieldEnum = {
 };
 
 exports.Prisma.CategoryOrderByRelevanceFieldEnum = {
+  name: 'name',
   description: 'description'
 };
 

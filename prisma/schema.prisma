@@ -116,6 +116,7 @@ model Product {
 
 model Category {
   id           Int       @id @default(autoincrement())
+  name         String    @unique @db.VarChar(52)
   description  String    @db.VarChar(255)
   productCount Int       @default(0)
   products     Product[]
